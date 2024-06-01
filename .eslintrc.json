@@ -1,0 +1,143 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint", "check-file", "import"],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended",
+      "plugin:node/recommended",
+      "plugin:import/recommended",
+      "plugin:import/typescript"
+    ],
+    "settings": {
+      "import/resolver": {
+        "typescript": true,
+        "node": true
+      },
+      "react": {
+        "version": "detect"
+      }
+    },
+    "rules": {
+      "@typescript-eslint/consistent-type-imports": "error",
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          "argsIgnorePattern": "^_",
+          "varsIgnorePattern": "^_",
+          "caughtErrorsIgnorePattern": "^_"
+        }
+      ],
+      "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
+      "react/no-unknown-property": [
+        "error",
+        {
+          "ignore": ["css"]
+        }
+      ],
+      "node/no-unsupported-features/es-syntax": "off",
+      "node/no-unpublished-import": "off",
+      "node/no-unpublished-require": "off",
+      "node/no-extraneous-import": "off",
+      "node/no-missing-import": "off",
+      "node/no-missing-require": "off",
+      "node/no-process-env": "error",
+      "padding-line-between-statements": [
+        "error",
+        {
+          "blankLine": "always",
+          "prev": "*",
+          "next": "return"
+        }
+      ],
+      "check-file/folder-naming-convention": [
+        "error",
+        {
+          "*": "KEBAB_CASE"
+        }
+      ],
+      "check-file/filename-naming-convention": [
+        "error",
+        {
+          "*": "KEBAB_CASE"
+        },
+        {
+          "ignoreMiddleExtensions": true
+        }
+      ],
+      "import/no-named-as-default-member": "off",
+      "import/order": [
+        "error",
+        {
+          "groups": [
+            "builtin",
+            "external",
+            "type",
+            ["index", "sibling", "parent", "internal", "object"]
+          ],
+          "newlines-between": "always"
+        }
+      ],
+      "import/no-cycle": "error"
+    },
+    "overrides": [
+      {
+        "files": ["**/*.tsx"],
+        "parserOptions": {
+          "ecmaVersion": 2018,
+          "ecmaFeatures": {
+            "jsx": true
+          }
+        },
+        "extends": [
+          "plugin:react/recommended",
+          "plugin:react-hooks/recommended",
+          "plugin:jsx-a11y/recommended"
+        ],
+        "rules": {
+          "react/prop-types": [
+            "error",
+            {
+              "skipUndeclared": true
+            }
+          ],
+          "check-file/filename-naming-convention": [
+            "error",
+            {
+              "*": "PASCAL_CASE"
+            },
+            {
+              "ignoreMiddleExtensions": true
+            }
+          ]
+        }
+      },
+      {
+        "files": ["**/__mocks__/**"],
+        "rules": {
+          "check-file/folder-naming-convention": "off"
+        }
+      },
+      {
+        "files": ["**/index.tsx"],
+        "rules": {
+          "check-file/filename-naming-convention": "off"
+        }
+      },
+      {
+        "files": ["src/**"],
+        "rules": {
+          "no-restricted-globals": [
+            "error",
+            {
+              "name": "console",
+              "message": "Import console from /src/core/console"
+            }
+          ]
+        }
+      }
+    ]
+  }
+  
