@@ -68,19 +68,6 @@
         }
       ],
       "import/no-named-as-default-member": "off",
-      "import/no-restricted-paths": [
-        "error",
-        {
-          "zones": [
-            {
-              "target": "./src/core",
-              "from": "./src",
-              "except": ["./core", "./types"],
-              "message": "Core files must not import from publications files"
-            }
-          ]
-        }
-      ],
       "import/order": [
         "error",
         {
@@ -94,26 +81,8 @@
         }
       ],
       "import/no-cycle": "error"
-  //    needs to be solved https://github.schibsted.io/Premium/fastenposten/pull/7177#issuecomment-1458797
-  //    "import/no-extraneous-dependencies": [
-  //      "error",
-  //      {
-  //        "packageDir": "./"
-  //      }
-  //    ]
     },
     "overrides": [
-      {
-        "files": [
-          "src/aftenposten/views-react/**",
-          "src/byfunn/views/**",
-          "src/core/weather/components/**"
-        ],
-        "rules": {
-          "check-file/filename-naming-convention": "off",
-          "check-file/folder-naming-convention": "off"
-        }
-      },
       {
         "files": ["**/*.tsx"],
         "parserOptions": {
