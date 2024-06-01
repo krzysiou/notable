@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "start": "npm run tauri dev",
     "bundle": "npm run tauri build",
+    "release": "npm run bundle && scp src-tauri/target/release/bundle/dmg/*.dmg ./release/",
     "lint": "npx eslint --cache .",
     "lint:fix": "npx eslint --fix .",
     "typecheck": "tsc --noEmit",
